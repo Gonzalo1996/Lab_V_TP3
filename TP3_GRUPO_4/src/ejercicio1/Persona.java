@@ -97,6 +97,14 @@ public class Persona implements Comparable<Persona>{
 			return false;
 		return true;
 	}
+	
+	public void verificarDniInvalido() throws DniInvalido {
+		
+        // Regular expression (regex)
+        if (!this.dni.matches("[0-9]+")) {
+            throw new DniInvalido();
+        }
+	}
 
 	@Override
 	public String toString() 

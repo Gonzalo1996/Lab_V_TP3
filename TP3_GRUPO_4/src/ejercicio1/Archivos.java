@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.MessageFormat;
 import java.util.TreeSet;
 
 public class Archivos {
@@ -64,12 +65,20 @@ public class Archivos {
 					apellido = informacion[1];
 					dni = informacion[2];
 					Persona per = new Persona(dni, nombre, apellido);
-					lista.add(per);
 					
+					try {
+						per.verificarDniInvalido();
+						lista.add(per);
+					} 
+					catch (DniInvalido e) {
+						System.out.println(MessageFormat.format("Error con DNI: {0}"
+								+ "\n -> {1}", 
+								per.getDni(), e.getMessage()));
+					}
 				}
 				
-			miBuffer.close();
-			entrada.close();
+				miBuffer.close();
+				entrada.close();
 			}
 			catch(IOException e)
 			{
