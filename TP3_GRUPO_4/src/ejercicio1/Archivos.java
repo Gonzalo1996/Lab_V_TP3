@@ -1,13 +1,18 @@
 package ejercicio1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.text.MessageFormat;
 import java.util.TreeSet;
+
+//import dominio.Persona;
 
 public class Archivos {
 
@@ -83,6 +88,26 @@ public class Archivos {
 			catch(IOException e)
 			{
 				System.out.println("No se encontro el archivo");
+			}
+			
+		}
+		
+		public void escribirLista(TreeSet<Persona> lista)
+		{
+			try 
+			{
+				BufferedWriter miBuffer = new BufferedWriter (new OutputStreamWriter(new FileOutputStream(ruta), "cp1252"));
+				for(Persona p:lista)
+				{
+					//miBuffer.write(p.getNombre()+"-"+p.getApellido()+"-"+p.getDni()+"\n");
+					miBuffer.write("DNI: " + p.getDni() + " - NOMBRE: " + p.getNombre() + " - APELLIDO: " +p.getApellido() + "\n");
+				}
+				miBuffer.close();
+			
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
 			}
 			
 		}

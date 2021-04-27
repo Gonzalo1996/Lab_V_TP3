@@ -9,32 +9,45 @@ public class Principal {
 		
 		System.out.println("TRABAJO PRÁCTICO 3 \n");
 		
-		//Creación Objeto Archivo
+		/*<--------- CREACIÓN DE OBJETOS ARCHIVOS ---------------*/
+		
 			Archivos file1 = new Archivos();
+			Archivos file2 = new Archivos();
+			
 			file1.setRuta("Archivos/Personas(1).txt");
+			file2.setRuta("Archivos/Resultado.txt");
+			
 			
 			TreeSet<Persona> listaPersona = new TreeSet<Persona>();
 			Iterator<Persona> iterador;
 		
-		//Corroboramos que el Archivo exista
-			System.out.println("------------------------------");
+		/*<--------- CORROBORAMOS QUE EL ARCHIVO EXISTA ---------------*/
+			
+			System.out.println("****************************");
+			
 			if(file1.Buscar()) {
 				System.out.println("El Archivo existe");
 			}
 			else {
 				System.out.println("El Archivo no existe");
 			}
-			System.out.println("------------------------------");
+			
+			System.out.println("****************************");
 		
-		//Leemos el Archivo Personas(1).txt
+		 /*<--------- LEEMOS EL ARCHIVO Personas(1).txt ---------------*/
+			
 			System.out.println("Lectura Personas(1).txt: ");
 			file1.leer();
 			
 			
-		//Treeset	
-			System.out.println("TREESET");
-			file1.leer(listaPersona);
+		/*<--------- TREESET ---------------*/
 			
+			System.out.println("****************************");
+			System.out.println("TREESET");
+			System.out.println("****************************");
+			
+			
+			file1.leer(listaPersona);
 			iterador = listaPersona.iterator();
 			
 			while(iterador.hasNext()) {
@@ -42,6 +55,14 @@ public class Principal {
 				Persona persona = (Persona) iterador.next();
 				System.out.println(persona.toString()); //Se muestra el Contenido del TreeSet
 			}
+			
+
+			System.out.println("****************************");
+			System.out.println("LECTURA DE Resultado.txt");
+			System.out.println("****************************");
+			
+			file2.escribirLista(listaPersona);
+			file2.leer();
 	}
 
 }
