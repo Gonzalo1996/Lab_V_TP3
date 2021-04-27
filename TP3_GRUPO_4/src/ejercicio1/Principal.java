@@ -14,7 +14,7 @@ public class Principal {
 			Archivos file1 = new Archivos();
 			Archivos file2 = new Archivos();
 			
-			file1.setRuta("Archivos/Personas(1).txt");
+			file1.setRuta("Archivos/Personas.txt");
 			file2.setRuta("Archivos/Resultado.txt");
 			
 			
@@ -30,6 +30,8 @@ public class Principal {
 			}
 			else {
 				System.out.println("El Archivo no existe");
+				System.out.println("****************************");
+				return;
 			}
 			
 			System.out.println("****************************");

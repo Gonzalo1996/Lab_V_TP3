@@ -99,8 +99,8 @@ public class Archivos {
 				BufferedWriter miBuffer = new BufferedWriter (new OutputStreamWriter(new FileOutputStream(ruta), "cp1252"));
 				for(Persona p:lista)
 				{
-					//miBuffer.write(p.getNombre()+"-"+p.getApellido()+"-"+p.getDni()+"\n");
-					miBuffer.write("DNI: " + p.getDni() + " - NOMBRE: " + p.getNombre() + " - APELLIDO: " +p.getApellido() + "\n");
+					miBuffer.write(p.getNombre()+"-"+p.getApellido()+"-"+p.getDni()+"\n");
+					//miBuffer.write("DNI: " + p.getDni() + " - NOMBRE: " + p.getNombre() + " - APELLIDO: " +p.getApellido() + "\n");
 				}
 				miBuffer.close();
 			
@@ -109,10 +109,7 @@ public class Archivos {
 			{
 				e.printStackTrace();
 			}
-			
 		}
-		
-		
 		
 	//Get y Set
 		public String getRuta() {
